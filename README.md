@@ -1,111 +1,105 @@
-# Docky - File Upload System
+# Docky File Manager
 
-A clean, simple file upload system where users can enter their name and upload files to Supabase. Features a blue-themed interface with admin authentication.
+A modern file upload and management system built with React and Supabase.
 
 ## Features
 
-- ✅ Simple name input and file upload
-- ✅ No authentication required
-- ✅ File validation (PDF, Word, Markdown, Text, Images, ZIP)
-- ✅ Progress bar during upload
-- ✅ View all uploaded files
-- ✅ Download and delete files
-- ✅ Admin dashboard to manage all files
-- ✅ Search and filter functionality
-- ✅ File statistics and analytics
-- ✅ Responsive design
-- ✅ File size limit: 100MB
+- 📁 File upload with drag & drop support
+- 👥 User-based file organization
+- 🔍 Search and filter functionality
+- 📊 Admin dashboard with statistics
+- 🗑️ File deletion and management
+- 📱 Responsive design
+- 🔒 Secure file storage with Supabase
 
-## Setup Instructions
+## Quick Start
 
-### 1. Database Setup
-
-Run the SQL script in your Supabase SQL Editor:
-
-```sql
--- Copy and paste the contents of setup-database.sql
-```
-
-This will:
-- Delete all existing tables and policies
-- Create a new `file_uploads` table
-- Set up storage bucket with proper policies
-- Allow all operations for simplicity
-
-### 2. Install Dependencies
-
+### 1. Setup
 ```bash
+# Run the setup script
+./setup.sh
+
+# Or manually install dependencies
 npm install
 ```
 
-### 3. Start the Application
+### 2. Environment Variables
+Create a `.env` file in the root directory:
+```env
+REACT_APP_SUPABASE_URL=https://mvwgklqgyzeycbvimmtm.supabase.co
+REACT_APP_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12d2drbHFneXpleWNidmltbXRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3MzAxMDAsImV4cCI6MjA2ODMwNjEwMH0.QlLQ25LdESxCR4hNVfs2GaRjrZTF1Mu6Q9ixf1ULoaA
+```
 
+### 3. Supabase Setup
+1. Go to your Supabase dashboard
+2. Run the SQL from `setup-database.sql` in the SQL editor
+3. Create a storage bucket named `file-uploads` and set it to public
+
+### 4. Development
 ```bash
 npm start
 ```
 
-The app will open at `http://localhost:3000`
-
-## How to Use
-
-### File Upload Page
-1. **Enter your name** in the input field
-2. **Select a file** to upload (drag & drop or click to browse)
-3. **Click "Upload File"** to upload to Supabase
-4. **View uploaded files** in the list below
-5. **Download or delete** files as needed
-
-### Admin Dashboard
-1. **Navigate to Admin Dashboard** using the top navigation
-2. **Login with admin credentials** (Username: `admin`, Password: `admin123`)
-3. **View all uploaded files** from all users
-4. **Search files** by name or user
-5. **Filter by user** to see specific user uploads
-6. **Sort files** by various criteria (date, name, size, etc.)
-7. **Download or delete** any file
-8. **View statistics** including total files, size, users, and today's uploads
-9. **Logout** when finished
-
-## Supported File Types
-
-- PDF files (.pdf)
-- Word documents (.doc, .docx)
-- Markdown files (.md)
-- Text files (.txt)
-- Images (.jpg, .jpeg, .png, .gif)
-- ZIP files (.zip)
-
-## File Size Limit
-
-Maximum file size: **100MB**
-
-## Database Schema
-
-```sql
-CREATE TABLE file_uploads (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    user_name TEXT NOT NULL,
-    file_name TEXT NOT NULL,
-    file_type TEXT NOT NULL,
-    file_size BIGINT NOT NULL,
-    file_url TEXT,
-    uploaded_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+### 5. Build
+```bash
+npm run build
 ```
 
-## Storage
+## Deployment
 
-Files are stored in Supabase Storage bucket `file-uploads` with public access for easy downloading.
+### Vercel (Recommended)
+```bash
+npm run deploy:vercel
+```
+
+### GitHub Pages
+```bash
+npm run deploy
+```
+
+### Netlify
+```bash
+npm run deploy:netlify
+```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## Admin Access
 
-- **Username**: `admin`
-- **Password**: `admin123`
-- **Access**: Admin dashboard with full file management capabilities
+- **Username**: admin
+- **Password**: admin123
 
-## Technologies Used
+## Tech Stack
 
-- React 18
-- Supabase (Database & Storage)
-- Tailwind CSS
-- Lucide React Icons 
+- **Frontend**: React, Tailwind CSS, Lucide React
+- **Backend**: Supabase (PostgreSQL + Storage)
+- **Routing**: React Router DOM
+- **Deployment**: Vercel, Netlify, GitHub Pages
+
+## File Types Supported
+
+- PDF documents
+- Word documents (.doc, .docx)
+- Text files (.txt)
+- Markdown files (.md)
+- Images (.jpg, .png, .gif)
+- ZIP archives
+
+## Security Features
+
+- File type validation
+- File size limits (100MB max)
+- Row Level Security (RLS)
+- Environment variable protection
+- CORS configuration
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details. 
