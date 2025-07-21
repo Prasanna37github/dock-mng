@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Upload, File, CheckCircle, XCircle, AlertCircle, Plus, Download, Trash2 } from 'lucide-react';
+import { Upload, File, CheckCircle, XCircle, Plus, Download, Trash2 } from 'lucide-react';
 
 const FileUpload = () => {
   const [userName, setUserName] = useState('');
