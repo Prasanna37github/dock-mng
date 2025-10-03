@@ -107,7 +107,7 @@ function HomePage() {
               <Cloud className="h-12 w-12 text-blue-600" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to File Upload System</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to File Upload System..</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Upload your files securely with our modern web application. Support for various file types including documents, images, and presentations.
           </p>
